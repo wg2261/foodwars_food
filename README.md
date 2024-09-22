@@ -7,10 +7,10 @@ git clone https://github.com/wg2261/foodwars_food
 cd foodwars_food
 code .
 python m -venv .venv
-# On Windows:
+// On Windows:
 .venv\Scripts\activate
 
-# On macOS and Linux:
+// On macOS and Linux:
 source .venv/bin/activate
 
 pip install -r requirements.txt
