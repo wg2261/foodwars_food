@@ -162,25 +162,33 @@ def main():
         print("Please set up and input an API Key from spoonacular into the .env file")
         return
     
-    # Get only a single letter
-    letter = ""
-    while len(letter) != 1:
-        letter = input("Enter a single letter that dishes start with: ").strip()
-        if len(letter) != 1:
-            print("Too long")
-        elif len(letter) == 1 and not letter.isalpha():
-            print("Not a single letter")
-            letter = ""
-    letter = letter.lower()
-    
     dish_list = []
-    for dish in dishes:
-        if dish['Dish name'][0].lower() == letter:
-            more_info = get_individual_dish_info(dish['Link'])
-            dish.update(more_info)
-            nutrition = get_nutritional_value(dish['Dish name'])
-            dish.update(nutrition)
-            dish_list.append(dish)
+    letter = ""
+    # Loop until there is dishes starting with a letter
+    while len(dish_list == 0):
+        # Get only a single letter
+        while len(letter) != 1:
+            letter = input("Enter a single letter that dishes start with: ").strip()
+            if len(letter) > 1:
+                print("Too long or short")
+            elif len(letter) == 1 and not letter.isalpha():
+                print("Not a single letter")
+                letter = ""
+        letter = letter.lower()
+        
+        #Obtain info
+        dish_list = []
+        for dish in dishes:
+            if dish['Dish name'][0].lower() == letter:
+                more_info = get_individual_dish_info(dish['Link'])
+                dish.update(more_info)
+                nutrition = get_nutritional_value(dish['Dish name'])
+                dish.update(nutrition)
+                dish_list.append(dish)
+        
+        if len(dish_list) == 0:
+            print(f"No dishes start with the letter {letter}")
+            return
     
     # Put data into a df format and organizing it
     df = pd.DataFrame(dish_list)
