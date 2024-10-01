@@ -165,7 +165,7 @@ def main():
     dish_list = []
     letter = ""
     # Loop until there is dishes starting with a letter
-    while len(dish_list == 0):
+    while len(dish_list) == 0:
         # Get only a single letter
         while len(letter) != 1:
             letter = input("Enter a single letter that dishes start with: ").strip()
