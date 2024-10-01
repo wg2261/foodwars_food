@@ -1,5 +1,5 @@
 # Food Wars wiki x Nutrients estimate
-This scraps the Food Wars wiki for dish names starting with a letter that user inputs and uses the spoonacular API to get an nutrition estimate.
+This scrapes the Food Wars wiki for dish names starting with a letter that user inputs and uses the spoonacular API to get an nutrition estimate.
 
 ## Value
 There are no APIs or websites sitting around with all the relevant information on Food War dishes, but there are those who want to recreate or simply just want to watch pretty food items. Reason for lack of API is since it data is almost entirely fan contributed based on watching the anime itself and there really isn't a lot to profit off or learn from.
