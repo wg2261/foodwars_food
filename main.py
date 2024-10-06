@@ -197,7 +197,7 @@ def main():
 
     # Clean CSV file
     df.columns = df.columns.str.lower().str.replace(' ', '_') # Make all columns lower space and replacing spaces with _
-    df = df.apply(lambda col: col.fillna(0) if col.dtype in ['int64', 'float64'] else col.fillna('Unknown')) # unknown is filled if player does not have that statistic (for example, a batter definitely won't have a numberGamesPitched in stat!)
+    df = df.apply(lambda col: col.fillna(0) if col.dtype in ['int64', 'float64'] else col.fillna('Unknown'))
 
     df.to_csv(f'dishes_starting_with_letter_{letter}.csv', index=False)
     
